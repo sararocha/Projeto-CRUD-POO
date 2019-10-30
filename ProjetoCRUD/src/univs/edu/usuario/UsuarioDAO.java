@@ -15,41 +15,46 @@ import univs.edu.util.HibernateUtil;
  * @author LABORATORIO 01
  */
 public class UsuarioDAO {
-  private  Session sessao;
-  private Transaction transacao;
-  
-  public void salvar(Usuario usuario){
-      sessao = HibernateUtil.getSessionFactory().openSession();
-      transacao = sessao.beginTransaction();
-      sessao.save(usuario);
-      transacao.commit();
-      sessao.close();
-      
-  }
-  
-     public void esxcluir(Usuario usuario){
-      sessao = HibernateUtil.getSessionFactory().openSession();
-      transacao = sessao.beginTransaction();
-      sessao.delete(usuario);
-      transacao.commit();
-      sessao.close();
-      
-  }
-       public void editar(Usuario usuario){
-      sessao = HibernateUtil.getSessionFactory().openSession();
-      transacao = sessao.beginTransaction();
-      sessao.update(usuario);
-      transacao.commit();
-      sessao.close();
-      
-  }
-      public Usuario pesquisar(int id){
-      sessao = HibernateUtil.getSessionFactory().openSession();
-      transacao = sessao.beginTransaction();
-      Usuario usuario = (Usuario) sessao.createCriteria(Usuario.class). add(Restrictions.eq("idUsuario", id)).uniqueResult();
-      sessao.close();
-      return usuario;
-      
-  }
-     
+    private Session sessao;
+    private Transaction transacao;
+    
+    public void salvar(Usuario usuario){
+       sessao = HibernateUtil.
+               getSessionFactory().openSession();
+       transacao = sessao.beginTransaction();
+       sessao.save(usuario);
+       transacao.commit();
+       sessao.close();
+    }
+    
+    public void excluir(Usuario usuario){
+       sessao = HibernateUtil.
+               getSessionFactory().openSession();
+       transacao = sessao.beginTransaction();
+       sessao.delete(usuario);
+       transacao.commit();
+       sessao.close();
+    }
+    
+    public void editar(Usuario usuario){
+       sessao = HibernateUtil.
+               getSessionFactory().openSession();
+       transacao = sessao.beginTransaction();
+       sessao.update(usuario);
+       transacao.commit();
+       sessao.close();
+    }
+    
+    public Usuario pesquisar(int id){
+       sessao = HibernateUtil.
+               getSessionFactory().openSession();
+       transacao = sessao.beginTransaction();
+       Usuario usuario = (Usuario) sessao.
+               createCriteria(Usuario.class)
+               .add(Restrictions.eq("id", id)).uniqueResult();
+       sessao.close();
+       return usuario;
+    }
+   
 }
+    
