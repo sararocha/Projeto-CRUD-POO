@@ -5,6 +5,7 @@
  */
 package univs.edu.telas;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import univs.edu.usuario.Usuario;
 import univs.edu.usuario.UsuarioDAO;
@@ -34,11 +35,11 @@ public class TelaVincularUsuario extends javax.swing.JFrame {
                 new UsuarioTableModel(dao.listarUsuarios());
         tabelaUsuario.setModel(tm);
     }
+    
     public void vincularUsuario(Usuario usuario){
         tela.carregarUsuario(usuario);
-        
-        
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,7 +59,7 @@ public class TelaVincularUsuario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel2.setText("Víncular Usuário");
+        jLabel2.setText("Vincular Usuário");
 
         tabelaUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -99,31 +100,30 @@ public class TelaVincularUsuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton4)
-                        .addGap(260, 260, 260)
-                        .addComponent(btSelecionar)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(147, 147, 147))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(116, 116, 116))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton4)
+                                .addGap(72, 72, 72)
+                                .addComponent(btSelecionar)))
+                        .addContainerGap(9, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(btSelecionar)))
+                    .addComponent(btSelecionar)
+                    .addComponent(jButton4))
+                .addContainerGap())
         );
 
         pack();
@@ -137,8 +137,7 @@ public class TelaVincularUsuario extends javax.swing.JFrame {
             usuario = dao.pesquisar((int) tabelaUsuario.getValueAt(linha, 0));
             tela.carregarUsuario(usuario);
             tela.setVisible(true);
-            dispose ();
-            
+            dispose();
         }
         
     }//GEN-LAST:event_btSelecionarActionPerformed
@@ -146,13 +145,11 @@ public class TelaVincularUsuario extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         tela.setVisible(true);
         dispose();
-        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void tabelaUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaUsuarioMouseClicked
         if(evt.getClickCount() == 2){
             btSelecionarActionPerformed(null);
-            
         }
     }//GEN-LAST:event_tabelaUsuarioMouseClicked
 
