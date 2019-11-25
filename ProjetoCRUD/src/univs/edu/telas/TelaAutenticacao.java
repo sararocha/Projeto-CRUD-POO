@@ -6,6 +6,7 @@
 package univs.edu.telas;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import univs.edu.funcionario.Funcionario;
 import univs.edu.funcionario.FuncionarioDAO;
@@ -112,15 +113,20 @@ public class TelaAutenticacao extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     public Funcionario autenticarFunc(String login, String senha){
-        ArrayList <Funcionario> listaFuncionario = (ArrayList <Funcionario>) dao.listarFuncionarios();
+        List<Funcionario> listaFuncionario = dao.listarFuncionarios();
+        
         for (Funcionario funcionario1 : listaFuncionario) {
-           if(funcionario1.getUsuario().getLogin().equals(login) &&funcionario1.getUsuario().getSenha().equals(senha)){
-               return funcionario1;
-           }
+            if(funcionario1.getUsuario().getLogin().equals(login)
+                    && funcionario1.getUsuario().getSenha().equals(senha)){
+                return funcionario1;
+            }
         }
+        
         return null;
     }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(!tfLogin.getText().isEmpty() && !tfSenha.getText().isEmpty())
         {

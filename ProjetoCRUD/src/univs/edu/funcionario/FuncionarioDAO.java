@@ -67,7 +67,8 @@ public class FuncionarioDAO {
         sessao.close();
         return funcionarios;
     }
-     public Funcionario autenticarFuncionario(String login, String senha){
+    
+    public Funcionario autenticarFuncionario(String login, String senha){
         sessao = HibernateUtil.
                 getSessionFactory().openSession();
         transacao = sessao.beginTransaction();

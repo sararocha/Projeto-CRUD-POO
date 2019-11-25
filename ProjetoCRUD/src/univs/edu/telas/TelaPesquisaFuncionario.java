@@ -121,16 +121,16 @@ public class TelaPesquisaFuncionario extends javax.swing.JFrame {
                                 .addComponent(jButton1)))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(116, 116, 116))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3)
                         .addGap(36, 36, 36))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(101, 101, 101)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,7 +162,7 @@ public class TelaPesquisaFuncionario extends javax.swing.JFrame {
         if(linha == -1){
             JOptionPane.showMessageDialog(null, "Selecione uma linha!");
         }else if(JOptionPane.showConfirmDialog(null, "Deseja realmente"
-                + " excluir este Funcionário?", "Excluir Funcionário", 
+                + " excluir este funcionário?", "Excluir funcionário", 
                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
             funcionario = dao.pesquisar((int) tabelaFuncionario.getValueAt(linha, 0));
             dao.excluir(funcionario);
